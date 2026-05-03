@@ -85,7 +85,6 @@ flutter run
 ## 👨‍💻 Thông tin đồ án
 - **Sinh viên thực hiện:** Thanh Trúc (@thanhtrucne)
 - **Môn học:** Lập trình Di động Nâng cao (LTDNT)
-- **Giảng viên hướng dẫn:** [Tên giảng viên nếu cần]
 
 ---
 *Dự án này được xây dựng với mục tiêu thực hành các kỹ năng lập trình Flutter nâng cao và tích hợp dịch vụ Cloud cho ứng dụng di động.*
