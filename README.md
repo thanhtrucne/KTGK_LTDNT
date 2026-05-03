@@ -1,122 +1,91 @@
-# 🚀 KTGK_LTDNT - Employee Management System
+# 🌍 Đồ án: Travel Planner - Ứng dụng Lập kế hoạch Du lịch
 
 [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
 [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
-[![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
+[![Riverpod](https://img.shields.io/badge/Riverpod-60B5FF?style=for-the-badge&logo=dart&logoColor=white)](https://riverpod.dev)
 
-A comprehensive mobile application for managing employees, built with **Flutter** and **Firebase**. This project demonstrates a robust implementation of real-time data synchronization, advanced authentication flows, and premium UI/UX design.
-
----
-
-## ✨ Key Features
-
-- **🔐 Multi-Method Authentication**
-  - Email & Password (Login/Register/Forgot Password)
-  - **Phone OTP** Verification
-  - **Google Sign-In** Integration
-- **👥 Employee Management (CRUD)**
-  - Real-time list updates with `StreamBuilder`
-  - Advanced search and filtering
-  - Detailed employee profiles
-- **👤 User Profile**
-  - Personal information management
-  - Profile picture support (Base64 storage in Firestore)
-- **🎨 Premium UI/UX**
-  - Modern **Material 3** Design
-  - Responsive layouts for all screen sizes
-  - Smooth micro-animations using `flutter_animate`
-  - Dark & Light mode support
-- **🏗️ Architecture**
-  - State management with **Riverpod** & **Provider**
-  - Clean separation of concerns (UI, Business Logic, Data Layers)
-  - Firestore offline persistence
+Đây là đồ án kết thúc học phần cho môn **Lập trình Di động Nâng cao (LTDNT)**. Ứng dụng **Travel Planner** là một giải pháp toàn diện giúp người dùng quản lý, lên kế hoạch và lưu giữ những kỷ niệm cho mỗi chuyến hành trình.
 
 ---
 
-## 📂 Project Structure
+## ✨ Tính năng chính
+
+### 🔐 Hệ thống Xác thực & Người dùng
+- **Đa phương thức đăng nhập:** Hỗ trợ Email/Password, **Google Sign-In**, và xác thực qua **Số điện thoại (OTP)**.
+- **Quản lý Profile:** Cập nhật thông tin cá nhân, lưu trữ ảnh đại diện trực tiếp trên Firestore dưới dạng chuỗi Base64 (tối ưu tốc độ tải và quản lý).
+
+### 📍 Quản lý Chuyến đi (Trips)
+- **Danh sách thông minh:** Phân loại chuyến đi theo trạng thái: *Sắp tới (Upcoming), Đang diễn ra (Ongoing), và Đã hoàn thành (Completed)*.
+- **Tìm kiếm & Lọc:** Tìm kiếm chuyến đi nhanh chóng theo tên hoặc địa điểm.
+- **Đa phương tiện:** Tích hợp hình ảnh đại diện cho mỗi chuyến đi để dễ dàng nhận diện.
+
+### 📝 Lập kế hoạch chi tiết
+- **Lịch trình (Activities):** Lên kế hoạch chi tiết từng hoạt động, địa điểm tham quan cho từng ngày trong chuyến đi.
+- **Danh sách chuẩn bị (Checklist):** Quản lý các vật dụng cần mang theo, đảm bảo không bỏ sót bất kỳ thứ gì.
+- **Quản lý Chi phí (Expenses):** Theo dõi ngân sách dự kiến và ghi chép các khoản chi tiêu thực tế một cách trực quan.
+- **Khoảnh khắc (Trip Moments):** Lưu lại những bức ảnh và cảm xúc đáng nhớ trong suốt hành trình.
+
+### 🎨 Trải nghiệm người dùng (UX/UI)
+- **Giao diện hiện đại:** Thiết kế theo chuẩn **Material 3** với ngôn ngữ thiết kế tối giản, sang trọng.
+- **Dark Mode:** Hỗ trợ giao diện tối toàn diện, tự động thích ứng hoặc tùy chỉnh theo sở thích.
+- **Hiệu ứng & Chuyển động:** Sử dụng `flutter_animate` để tạo các vi tương tác (micro-interactions) mượt mà.
+- **Offline First:** Hỗ trợ lưu trữ đệm (Firestore persistence) giúp người dùng xem lại dữ liệu ngay cả khi không có kết nối mạng.
+
+---
+
+## 🛠️ Công nghệ sử dụng
+
+- **Framework:** [Flutter](https://flutter.dev) (SDK ^3.11.4)
+- **State Management:** [Riverpod](https://riverpod.dev) & [Provider](https://pub.dev/packages/provider)
+- **Backend:** [Firebase](https://firebase.google.com) (Auth, Firestore, Cloud Messaging)
+- **Database:** Cloud Firestore (Real-time synchronization)
+- **Fonts:** Google Fonts (Poppins)
+- **Icons:** Cupertino Icons, Lucide Icons (Custom widgets)
+
+---
+
+## 📂 Cấu trúc mã nguồn
 
 ```text
 lib/
-├── models/         # Data models (Employee, UserProfile)
-├── providers/      # State management (Auth, Employee, Theme)
-├── screens/        # UI Screens (Auth, Employees, Profile, Home)
-├── services/       # Firebase & logic services
-├── utils/          # Helpers and validators
-└── widgets/        # Reusable UI components
+├── models/         # Định nghĩa các thực thể (Trip, Activity, Expense, ChecklistItem...)
+├── providers/      # Quản lý trạng thái ứng dụng (Auth, Theme, Trip State...)
+├── screens/        # Giao diện người dùng phân theo Module (Auth, Trips, Profile...)
+├── services/       # Lớp xử lý logic nghiệp vụ và tương tác Firebase API
+├── utils/          # Các hàm tiện ích, định dạng và kiểm tra dữ liệu (Validators)
+└── widgets/        # Các thành phần UI dùng chung (Buttons, Cards, EmptyStates...)
 ```
 
 ---
 
-## 🛠️ Getting Started
+## 🚀 Hướng dẫn cài đặt & Chạy dự án
 
-### 1. Prerequisites
-- [Flutter SDK](https://docs.flutter.dev/get-started/install)
-- [Firebase CLI](https://firebase.google.com/docs/cli)
-- Node.js (for Firebase tools)
+### 1. Yêu cầu hệ thống
+- Flutter SDK đã được cài đặt.
+- Firebase CLI & FlutterFire CLI.
 
-### 2. Firebase Configuration
-1. **Initialize Firebase CLI:**
-   ```bash
-   dart pub global activate flutterfire_cli
-   firebase login
-   ```
-2. **Configure the project:**
-   ```bash
-   flutterfire configure
-   ```
-   *This will generate `lib/firebase_options.dart` and register your apps.*
-
-3. **Enable Firebase Services:**
-   - **Authentication:** Enable Email, Google, and Phone providers.
-   - **Firestore:** Create database in Test Mode.
-   - **Messaging:** Enable for push notifications.
-
-### 3. Platform Specifics
-
-#### 🤖 Android
-- Add your **SHA-1** and **SHA-256** fingerprints to Firebase Console for Google Sign-In and Phone Auth.
-- Generate fingerprints: `cd android && ./gradlew signingReport`.
-
-#### 🍎 iOS
-- Run `pod install` in the `ios` directory.
-- Configure `REVERSED_CLIENT_ID` in `Info.plist` for Google Sign-In.
-
----
-
-## 📜 Firestore Security Rules (Suggested)
-
-```javascript
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    function signedIn() {
-      return request.auth != null;
-    }
-
-    match /employees/{employeeId} {
-      allow read, write: if signedIn();
-    }
-
-    match /users/{userId} {
-      allow read, write: if signedIn() && request.auth.uid == userId;
-    }
-  }
-}
+### 2. Cấu hình Firebase
+Ứng dụng yêu cầu tệp `google-services.json` (Android) và `GoogleService-Info.plist` (iOS). Để tự động cấu hình, hãy chạy:
+```bash
+flutterfire configure
 ```
 
----
-
-## 🚀 Execution
-
+### 3. Cài đặt Dependencies
 ```bash
 flutter pub get
+```
+
+### 4. Chạy ứng dụng
+```bash
 flutter run
 ```
 
 ---
 
-## 🤝 Contribution
-Developed as a midterm project for **LTDNT**. Feel free to fork and enhance!
+## 👨‍💻 Thông tin đồ án
+- **Sinh viên thực hiện:** Thanh Trúc (@thanhtrucne)
+- **Môn học:** Lập trình Di động Nâng cao (LTDNT)
+- **Giảng viên hướng dẫn:** [Tên giảng viên nếu cần]
 
 ---
-*Created with ❤️ by [thanhtrucne](https://github.com/thanhtrucne)*
+*Dự án này được xây dựng với mục tiêu thực hành các kỹ năng lập trình Flutter nâng cao và tích hợp dịch vụ Cloud cho ứng dụng di động.*
